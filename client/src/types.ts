@@ -6,6 +6,11 @@ export interface NoteType {
   content: string;
 }
 
+export interface NoteProps {
+  children: React.ReactChild;
+  deleteHandler: () => void;
+}
+
 export interface BackdropProps {
   goBack: boolean;
 }

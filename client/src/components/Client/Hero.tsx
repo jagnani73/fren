@@ -5,6 +5,10 @@ import { NoteType } from "../../types";
 import Note from "./Note";
 
 const Hero = () => {
+  const deleteNoteHandler = (id: string) => {
+    console.log(id, "deleted");
+  };
+
   const notes: NoteType[] = [
     {
       _id: Math.random().toString(),
@@ -56,7 +60,11 @@ const Hero = () => {
               key={note._id}
               className={`w-1/4 p-6 mx-auto flex flex-wrap text-center`}
             >
-              <Note>
+              <Note
+                deleteHandler={() => {
+                  deleteNoteHandler(note._id);
+                }}
+              >
                 <div className="flex flex-wrap m-auto h-full">
                   <h3 className="text-xl font-bold mb-auto w-full">
                     {note.title && note.title.length > 50
