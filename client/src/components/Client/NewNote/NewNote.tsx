@@ -34,7 +34,7 @@ const NewNote = () => {
   return (
     <>
       <Backdrop goBack={true} />
-      <div className="fixed flex flex-wrap top-10 left-0 right-0 bottom-10 z-30 w-3/4 m-auto h-auto text-white rounded-lg shadow-note py-20">
+      <div className="fixed flex flex-wrap top-10 left-0 right-0 bottom-10 z-30 w-3/4 m-auto h-auto bg-baseBlack text-white rounded-lg shadow-note py-20">
         <div className="flex w-11/12 mx-auto">
           <h1 className="mr-auto text-3xl">Hi</h1>
           <div className="ml-auto cursor-pointer" onClick={exit}>
