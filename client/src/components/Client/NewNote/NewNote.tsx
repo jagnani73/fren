@@ -22,12 +22,13 @@ const NewNote = () => {
     content: Yup.string().required(),
   });
 
-  const submitValues = (values: any) => {
-    console.log(values);
-  };
-
   const exit = () => {
     createBrowserHistory().goBack();
+  };
+
+  const submitValues = (values: any) => {
+    console.log(values);
+    exit();
   };
 
   return (

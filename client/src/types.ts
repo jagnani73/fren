@@ -14,3 +14,5 @@ export interface NoteProps {
 export interface BackdropProps {
   goBack: boolean;
 }
+
+export type User = "client" | "therapist";
