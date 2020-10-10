@@ -9,7 +9,7 @@ from nltk.corpus import stopwords
 
 def tfidf(input):
 
-    corpus = [" "]
+    corpus = input
     stop_words = set(stopwords.words('english')) #define stopwords
     vectorizer = TfidfVectorizer()
     #print(vectorizer.get_feature_names())
