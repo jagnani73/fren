@@ -6,8 +6,11 @@
   "scripts": {
     "start": "node ./build/app.js",
     "start:dev": "npx nodemon ./build/app.js",
+    "start:client": "cd client && yarn start",
     "build": "npx tsc",
-    "build:dev": "npx tsc --watch"
+    "build:dev": "npx tsc --watch",
+    "build:client": "cd client && yarn build",
+    "postinstall": "cd client && yarn"
   },
   "repository": {
     "type": "git",
