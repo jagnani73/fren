@@ -34,6 +34,12 @@ def senti_helper(post,fun):
    }
    return temp
 
+def CombSep(notes):
+   B = []
+   for i in notes:
+      B.append(i["log"])
+   return B
+
 
 if __name__ == '__main__':
    #app.run(host="0.0.0.0", port=8080,debug=True)
@@ -50,5 +56,5 @@ if __name__ == '__main__':
           "date": 1602307428860,
    }
    
-   print(helper(T,tfidf.tfidf))
-   print(R)
+   #print(helper(T,tfidf.tfidf))
+   print(CombSep([T,R]))
