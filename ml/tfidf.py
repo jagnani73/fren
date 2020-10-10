@@ -22,5 +22,3 @@ def tfidf(input):
     idf_values = dict(zip(vectorizer.get_feature_names(), vectorizer.idf_))
 
     return vectorizer.get_feature_names() # printing the vocabulary
-
-\\
