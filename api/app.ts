@@ -6,7 +6,7 @@ import cors from "cors";
 import { errorHandler } from "./error/error.handler";
 import authRoutes from "./auth/auth.routes";
 import clientRoutes from "./client/client.routes";
-import therapistRoutes from "./therapist/threapist.routes";
+import therapistRoutes from "./therapist/therapist.routes";
 import { DatabaseService } from "./services/database.service";
 
 dotenvConfig();

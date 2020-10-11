@@ -2,7 +2,11 @@ import { Router, Request, Response, NextFunction } from "express";
 
 import { validateJwt, jwtPayload } from "../util/validateJwt";
 import validateQuery from "../util/validateQuery";
-import { getClients } from "./therapist.service";
+import { getClients, generateReport } from "./therapist.service";
+import {
+  therapistReportRequest,
+  therapistReportRequestSchema,
+} from "./therapist.schema";
 
 const router: Router = Router();
 
@@ -12,6 +16,21 @@ const someGenericHandler = async (
   next: NextFunction
 ) => {
   try {
+    res.json({ success: true });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const handlePostTherapistReport = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const userDetails = res.locals.user as jwtPayload;
+    const { clientId } = req.body as therapistReportRequest;
+    await generateReport(userDetails, clientId!);
     res.json({ success: true });
   } catch (err) {
     next(err);
@@ -34,6 +53,11 @@ const handleGetTherapistClients = async (
 
 router.get("/therapist/clients", validateJwt(), handleGetTherapistClients);
 
-router.post("/client/report", validateJwt());
+router.post(
+  "/therapist/report",
+  validateJwt(),
+  validateQuery("body", therapistReportRequestSchema),
+  handlePostTherapistReport
+);
 
 export default router;
