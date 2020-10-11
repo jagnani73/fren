@@ -1,3 +1,4 @@
 scikit-learn==0.23.2
 flask==1.1.2
 textblob==0.15.3
+nltk==3.4.4

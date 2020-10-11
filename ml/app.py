@@ -6,14 +6,14 @@ Internal api
 """
 
 #import Core
-import nltk
-nltk.download('stopwords')
+# import nltk
+# nltk.download('stopwords')
 from flask import Flask,render_template,request,redirect,url_for,Response
 import json
 import senti as S
 import tfidf 
 import wordsimilarity as Ws
-import word_sim as spsim
+# import word_sim as spsim
 import random
 
 ch = "abcdefghijklmnopqrstuvwxyz123456789"
