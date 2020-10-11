@@ -11,8 +11,15 @@ module.exports = {
         "8xl": "6rem",
         "9xl": "7rem",
       },
-      height: { "1/3vh": "33.33333vh", "1/3": "33.33333%" },
-      colors: { baseBlack: "#0E121B", baseGray: "#171C26" },
+      height: {
+        "1/3vh": "33.33333vh",
+        "1/2vh": "50vh",
+        "1/3": "33.33333%",
+      },
+      colors: {
+        baseBlack: "#0E121B",
+        baseGray: "#171C26",
+      },
       boxShadow: {
         note: "0 0 30px 0 rgba(0, 0, 0, 0.75)",
       },
