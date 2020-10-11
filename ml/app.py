@@ -18,16 +18,24 @@ app = Flask(__name__)
 
 @app.route('/api',methods = ['POST'])
 def login():
-   print(request.json)
    res = request.get_json()
    uID  = res["userId"]
    tID = res["therapistId"]
    notes = res["notes"]
-   ...
+   A = []
+   for i in notes:
+      A.append(senti_helper(i))
+   B={
+      "therapistId": tID,
+      "userId": uID,   
+   }
+   X = CombSep(notes)
+   X = tfidf.tfidf(X)
+   X = Pairs(X)
    #return Response(json.dumps(user,indent=2),mimetype='application/json')
-   return Response(json.dumps(user),mimetype='application/json')
+   return Response(json.dumps({**B,"sentiment":A,**X}),mimetype='application/json')
 
-def senti_helper(post,fun):
+def senti_helper(post):
    A = S.sentiment_analysis(post["log"])
    temp = {
       "noteId":post["_id"],
@@ -59,7 +67,10 @@ def Pairs(arr):
       for i in range(j,len(B)):
          if i!=j:
             tem = breaker(Ws.similar(B[i][0],B[j][0]))
-            if tem > 0.5: 
+            
+            if tem == None:
+               tem =0
+            if tem >= 5: 
                C.append({"id":randomnamegenarator(),
                 "from":B[j][0],
                 "to":B[i][0],
@@ -69,29 +80,23 @@ def Pairs(arr):
       "nodes":[{"id":randomnamegenarator(), "label":i[0]} for i in B],
       "edges": C
    }}
-   print(json.dumps(Send, indent=4, sort_keys=True))
+   return Send
 
 def randomnamegenarator():
    return "".join([random.choice(ch) for i in range(5)])
 
+def ThreeKathing(notes):
+   A = 3
+   for i in range(len(notes) - (A-1)):
+      return tfidf.tfidf(CombSep(notes[i:i+A]))
 
 
 if __name__ == '__main__':
-   #app.run(host="0.0.0.0", port=8080,debug=True)
-   R = {
-          "_id": "5f69dc5408009d1718b25edf",
-          "userId": "5f69dc132b94c92da8f1785f",
-          "log": "Maine aaj dhoka khaya.",
-          "date": 1602307428860,
-   }
-   T = {
-         "_id": "5f69dc5408009d1718b25edf",
-          "userId": "5f69dc132b94c92da8f1785f",
-          "log": "Mera roz kat ta hai guys",
-          "date": 1602307428860,
-   }
-   
+   app.run(host="0.0.0.0", port=8080,debug=True)
+
+
    #print(helper(T,tfidf.tfidf))
-   print(Pairs(tfidf.tfidf(CombSep([T,R]))))
+   
    #print(breaker(0.41))
+   #print(ThreeKathing([I,J,K,L,M]))
 
