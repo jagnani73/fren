@@ -7,5 +7,10 @@ module.exports = {
         NODE_ENV: "development",
       },
     },
+    {
+      name: "HackTheMountains-2020 Flask",
+      interpreter: "/usr/bin/python3",
+      script: "./ml/app.py",
+    },
   ],
 };

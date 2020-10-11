@@ -6,8 +6,8 @@ Internal api
 """
 
 #import Core
-import nltk
-nltk.download('stopwords')
+# import nltk
+# nltk.download('stopwords')
 from flask import Flask,render_template,request,redirect,url_for,Response
 import json
 import senti as S
