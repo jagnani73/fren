@@ -28,12 +28,10 @@ const SingleUser = () => {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
-        !res.data.analysis.success && toast.error("No analysis to show!");
         setEdges(res.data.analysis.network.edges);
         setNodes(res.data.analysis.network.nodes);
         setWords(res.data.analysis.wordAnalysis);
         setSentiments(res.data.analysis.sentiment);
-        // console.log(res.data);
       })
       .catch((err) => {
         switch (err.response.status) {

@@ -23,7 +23,7 @@ const Hero = () => {
     })
       .then((res) => {
         setUsers(res.data.clients);
-        res.data.clients
+        res.data.clients.length > 0
           ? toast.success("Your Clients!")
           : toast.info("You have no clients");
       })

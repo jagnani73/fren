@@ -47,7 +47,7 @@ export interface WordAnalysisProps {
 
 export interface SentimentType {
   noteId: string;
-  time: number;
+  time: number | string;
   score: number;
 }
 

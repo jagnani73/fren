@@ -20,7 +20,9 @@ const Hero = () => {
     })
       .then((res) => {
         setNotes(res.data.notes);
-        toast.success("Your Notes!");
+        res.data.notes.length > 0
+          ? toast.success("Your Notes!")
+          : toast.info("You have no notes");
       })
       .catch((err) => {
         console.log(err.response);

@@ -29,7 +29,34 @@ import { SentimentProps } from "../../../types";
 const w: number = window.innerWidth;
 
 const Example = (props: SentimentProps) => {
-  const data = props.data;
+  function timeConverter(UNIX_timestamp: number) {
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var time = `${date} ${month}`;
+    return time;
+  }
+  const data = props.data.map((e) => {
+    return {
+      noteId: e.noteId,
+      time: timeConverter(e.time as number),
+      score: e.score,
+    };
+  });
 
   return (
     <div className="flex w-full h-full">
@@ -45,7 +72,7 @@ const Example = (props: SentimentProps) => {
             bottom: 5,
           }}
         >
-          <XAxis dataKey="name" axisLine={false} />
+          <XAxis dataKey={"time"} axisLine={false} />
           <YAxis label="At" />
           <Tooltip />
           <Legend />
