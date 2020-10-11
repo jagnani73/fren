@@ -39,11 +39,11 @@ def login():
    print(J)
    Z=[]
    for i in range(len(notes)-2):
-      Z.append({"noteId":notes[i]["_id"],"words":J[i]})
+      Z.append({"noteId":notes[i]["_id"],"time":notes[i]["date"],"words":J[i]})
    return Response(json.dumps({**B,"sentiment":A,"wordAnalysis":Z,**X}),mimetype='application/json')
 
 def senti_helper(post):
-   A = S.sentiment_analysis(post["log"])
+   A = S.sentiment_analysis(post["content"])
    temp = {
       "noteId":post["_id"],
       "time":post["date"],
@@ -54,7 +54,7 @@ def senti_helper(post):
 def CombSep(notes):
    B = []
    for i in notes:
-      B.append(i["log"])
+      B.append(i["content"])
    return B
 
 def breaker(A):
