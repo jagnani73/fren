@@ -43,4 +43,8 @@ export const errors = {
     httpStatus: 400,
     message: "Therapist Not Found with the provided Code.",
   },
+  RELATION_NOT_FOUND: {
+    httpStatus: 404,
+    message: "Client is not Assigned to The Therapist.",
+  },
 };
