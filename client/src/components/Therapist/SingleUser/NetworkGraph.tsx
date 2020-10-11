@@ -13,14 +13,21 @@ const NetworkGraph = (props: NetworkGraphProps) => {
       },
     },
   };
+
   return (
     <div className="h-full">
       <Network options={options}>
         {props.nodes.map((node) => (
-          <Node id={node.id} label={node.label} />
+          <Node key={node.id} id={node.id} label={node.label} />
         ))}
-        {props.edges.map((node) => (
-          <Edge from={node.from} to={node.to} value={node.value} />
+        {props.edges.map((edge) => (
+          <Edge
+            key={edge.id}
+            id={edge.id}
+            from={edge.from}
+            to={edge.to}
+            value={edge.value}
+          />
         ))}
       </Network>
     </div>

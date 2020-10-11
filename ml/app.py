@@ -19,7 +19,27 @@ import random
 ch = "abcdefghijklmnopqrstuvwxyz123456789"
 app = Flask(__name__)
 
-@app.route('/')
+class node():
+   def __init__(self,na):
+      self.id= randomnamegenarator()
+      self.name = na
+
+   def getID(self):
+      return self.id
+
+# class edges():
+#    def __init__(self,n1,n2):
+#       self.id = randomnamegenarator()
+#       self.n1= n1
+#       self.n2 = n2
+   
+#    def getN1(self):
+#       return self.n1.getID()
+
+#    def getN1(self):
+#       return self.n2..getID()
+
+# @app.route('/')
 def happy():
    return "Running happily :)" 
 
@@ -81,26 +101,26 @@ def Pairs(arr):
       if len(B) > Limit:
          break
       if arr[i] > 1:
-         B.append([i,arr[i]])
+         B.append(node(i))
 
    C = []
    print(len(B))
    for j in range(len(B)):
       for i in range(j,len(B)):
          if i!=j:
-            tem = breaker(Ws.similar(B[i][0],B[j][0]))
+            tem = breaker(Ws.similar(B[i].name,B[j].name))
             
             if tem == None:
                tem =0
 
             if tem >= 4: 
                C.append({"id":randomnamegenarator(),
-                "from":B[j][0],
-                "to":B[i][0],
+                "from":B[j].id,
+                "to":B[i].id,
                 "value":tem})
 
    Send = {"network":{
-      "nodes":[{"id":randomnamegenarator(), "label":i[0]} for i in B],
+      "nodes":[{"id":i.id, "label":i.name} for i in B],
       "edges": C
    }}
    return Send

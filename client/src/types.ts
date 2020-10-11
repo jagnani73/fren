@@ -47,7 +47,7 @@ export interface WordAnalysisProps {
 
 export interface SentimentType {
   noteId: string;
-  time: number;
+  time: number | string;
   score: number;
 }
 
@@ -57,6 +57,7 @@ export interface SentimentProps {
 
 export interface NoteProps {
   children: React.ReactChild;
+  date: number;
   deleteHandler: () => void;
 }
 
