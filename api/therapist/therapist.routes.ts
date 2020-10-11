@@ -30,8 +30,8 @@ const handlePostTherapistReport = async (
   try {
     const userDetails = res.locals.user as jwtPayload;
     const { clientId } = req.body as therapistReportRequest;
-    await generateReport(userDetails, clientId!);
-    res.json({ success: true });
+    const analysis = await generateReport(userDetails, clientId!);
+    res.json({ success: true, analysis });
   } catch (err) {
     next(err);
   }
