@@ -1,6 +1,10 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+
+import { PostLogin } from "../../types";
+import APIservice from "../../services/axios";
 
 const Hero = () => {
   const initialValues = {
@@ -16,21 +20,46 @@ const Hero = () => {
     password: Yup.string().required("No password provided"),
   });
 
-  const submitValues = (values: any) => {
-    console.log(values);
+  const submitValues = (values: PostLogin) => {
+    APIservice.post("/auth/login", values)
+      .then((res) => {
+        localStorage.setItem("authToken", res.data.authToken);
+        localStorage.setItem("category", res.data.category);
+        localStorage.setItem("therapistCode", res.data.therapistCode);
+        toast.success("Hooray! Logged in!");
+        alert("Hooray! Logged in!");
+        window.location.reload();
+      })
+      .catch((err) => {
+        switch (err.response.status) {
+          case 400:
+            toast.error(err.response.data.error);
+            break;
+          case 401:
+            toast.error(err.response.data.error);
+            break;
+          case 500:
+            toast.error("Internal Server Error");
+            break;
+          default:
+            toast.error("Oops! Something went wrong!");
+            break;
+        }
+      });
   };
 
   return (
     <div className="w-full h-screen flex flex-wrap">
-      <div className="w-1/2 bg-green-600 h-full" />
-      <div className="w-1/2 h-full ml-auto flex flex-wrap">
+      <ToastContainer />
+      <div className="hidden lg:block w-1/2 bg-green-600 h-full" />
+      <div className="w-full lg:w-1/2 h-full ml-auto flex flex-wrap">
         <Formik
           initialValues={initialValues}
           onSubmit={(values) => submitValues(values)}
           validationSchema={validationSchema}
         >
           {({ errors, touched }) => (
-            <Form className="m-auto w-1/3">
+            <Form className="m-auto w-11/12 lg:w-2/5">
               <div className="flex flex-wrap mb-4">
                 <label htmlFor="email" className="mb-3 text-base">
                   Email
@@ -57,7 +86,7 @@ const Hero = () => {
                   Password
                 </label>
                 <Field
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="ThisShouldBe@Hidden"
                   className={
@@ -77,7 +106,7 @@ const Hero = () => {
                 <button
                   type="submit"
                   disabled={errors.email || errors.password ? true : false}
-                  className="bg-green-500 w-full text-xl rounded-lg py-3 text-white"
+                  className="bg-green-500 w-full text-xl rounded-lg py-3 text-white mt-10"
                 >
                   Login !
                 </button>
