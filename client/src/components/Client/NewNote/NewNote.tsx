@@ -70,7 +70,7 @@ const NewNote = () => {
             toast.error("Oops! Something went wrong");
         }
       });
-    exit();
+    window.location.reload();
   };
 
   return (

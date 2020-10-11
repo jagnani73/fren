@@ -57,6 +57,7 @@ export interface SentimentProps {
 
 export interface NoteProps {
   children: React.ReactChild;
+  date: number;
   deleteHandler: () => void;
 }
 

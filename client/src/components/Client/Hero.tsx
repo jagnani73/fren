@@ -23,6 +23,7 @@ const Hero = () => {
         toast.success("Your Notes!");
       })
       .catch((err) => {
+        console.log(err.response);
         switch (err.response.status) {
           case 403:
             authContext.logoutHandler();
@@ -101,6 +102,7 @@ const Hero = () => {
               className="w-11/12 lg:w-1/4 p-6 m-auto flex flex-wrap text-center"
             >
               <Note
+                date={+note.date}
                 deleteHandler={() => {
                   deleteNoteHandler(note._id);
                 }}
@@ -111,9 +113,6 @@ const Hero = () => {
                       ? `${note.title?.substring(0, 50)}...`
                       : note.title}
                   </h3>
-                  <h6 className="mr-auto text-gray-600">
-                    {new Date(note.date)}
-                  </h6>
                   <p className="w-full px-2">
                     {window.innerWidth > 556
                       ? note.content.length > 500
