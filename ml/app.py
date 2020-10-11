@@ -6,6 +6,8 @@ Internal api
 """
 
 #import Core
+import nltk
+nltk.download('stopwords')
 from flask import Flask,render_template,request,redirect,url_for,Response
 import json
 import senti as S
@@ -113,7 +115,7 @@ def Three_Ka_thing(notes):
 
 
 if __name__ == '__main__':
-   app.run(host="0.0.0.0", port=8080,debug=True)
+   app.run(host="0.0.0.0", port=5000,debug=True)
 
 
    #print(helper(T,tfidf.tfidf))
