@@ -5,6 +5,8 @@ import cors from "cors";
 
 import { errorHandler } from "./error/error.handler";
 import authRoutes from "./auth/auth.routes";
+import clientRoutes from "./client/client.routes";
+import therapistRoutes from "./therapist/therapist.routes";
 import { DatabaseService } from "./services/database.service";
 
 dotenvConfig();
@@ -15,6 +17,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api/v1", authRoutes);
+app.use("/api/v1", clientRoutes);
+app.use("/api/v1", therapistRoutes);
 
 app.use(errorHandler);
 app.use((req: Request, res: Response, next: NextFunction) => {

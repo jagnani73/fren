@@ -18,23 +18,25 @@ def sentiment_analysis(input):
     analysis.sentiment
     polarity = analysis.sentiment.polarity
 
+    #Fix the formating
+
     if (polarity == 0):
-            output = "Neutral"
+            output = 0
     elif (polarity > 0 and polarity <= 0.3):
-            output = "Weakly Positive"
+            output = 1
     elif (polarity > 0.3 and polarity <= 0.6):
-            output = "Positive"
+            output = 2
     elif (polarity > 0.6 and polarity <= 1):
-            output = "Strongly Positive"
+            output = 3
     elif (polarity > -0.3 and polarity <= 0):
-            output = "Weakly Negative"
+            output = -1
     elif (polarity > -0.6 and polarity <= -0.3):
-            output = "Negative"
+            output = -2
     elif (polarity > -1 and polarity <= -0.6):
-            output = "Strongly Negative"
+            output = -3
 
     return output
 
 if __name__ == "__main__":
    
-    print(sentiment_analysis("I am happy today!"))
+    print(sentiment_analysis("I am sad and happy today!"))
