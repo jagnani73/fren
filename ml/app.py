@@ -32,8 +32,15 @@ def login():
    X = CombSep(notes)
    X = tfidf.tfidf(X)
    X = Pairs(X)
+
+   J =  Three_Ka_thing(notes)
    #return Response(json.dumps(user,indent=2),mimetype='application/json')
-   return Response(json.dumps({**B,"sentiment":A,**X}),mimetype='application/json')
+   print(len(J),len(notes))
+   print(J)
+   Z=[]
+   for i in range(len(notes)-2):
+      Z.append({"noteId":notes[i]["_id"],"words":J[i]})
+   return Response(json.dumps({**B,"sentiment":A,"wordAnalysis":Z,**X}),mimetype='application/json')
 
 def senti_helper(post):
    A = S.sentiment_analysis(post["log"])
@@ -85,10 +92,14 @@ def Pairs(arr):
 def randomnamegenarator():
    return "".join([random.choice(ch) for i in range(5)])
 
-def ThreeKathing(notes):
+def Three_Ka_thing(notes):
    A = 3
+   U = []
    for i in range(len(notes) - (A-1)):
-      return tfidf.tfidf(CombSep(notes[i:i+A]))
+      x = tfidf.tfidf(CombSep(notes[i:i+A]))
+      y = {k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
+      U.append(list(y.keys())[-5:])
+   return U
 
 
 if __name__ == '__main__':

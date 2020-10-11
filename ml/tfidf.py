@@ -25,4 +25,4 @@ def tfidf(input):
     return idf_values # printing the vocabulary
 
 if __name__=="__main__":
-    print(tfidf(["abhishek aashi ananya car saisha ","car","ananya"]))
+    print(tfidf(["abhishek aashi ananya car saisha "]))
