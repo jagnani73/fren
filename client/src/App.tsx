@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import "./App.scss";
@@ -56,18 +56,17 @@ const App = () => {
         <Redirect from="/" to="/therapist" exact />
       </Switch>
       <Route path="/therapist" component={Therapist} />
-      <Route path="/therapist/:id" exact component={SingleUser} />
+      <Route path="/therapist/:clientId" exact component={SingleUser} />
     </>
   );
 
   return (
     <>
-      {/* {authContext.isAuth
+      {authContext.isAuth
         ? localStorage.getItem("category") === "client"
           ? clientRoutes
           : therapistRoutes
-        : dumbRoutes} */}
-      {therapistRoutes}
+        : dumbRoutes}
     </>
   );
 };

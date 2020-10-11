@@ -25,6 +25,7 @@ const Hero = () => {
       .then((res) => {
         localStorage.setItem("authToken", res.data.authToken);
         localStorage.setItem("category", res.data.category);
+        localStorage.setItem("therapistCode", res.data.therapistCode);
         toast.success("Hooray! Logged in!");
         alert("Hooray! Logged in!");
         window.location.reload();
@@ -32,10 +33,10 @@ const Hero = () => {
       .catch((err) => {
         switch (err.response.status) {
           case 400:
-            toast.error(err.response.statusText);
+            toast.error(err.response.data.error);
             break;
           case 401:
-            toast.error(err.response.statusText);
+            toast.error(err.response.data.error);
             break;
           case 500:
             toast.error("Internal Server Error");

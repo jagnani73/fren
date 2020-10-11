@@ -50,7 +50,7 @@ const Hero = () => {
       .catch((err) => {
         switch (err.response.status) {
           case 400:
-            toast.error(err.response.statusText);
+            toast.error(err.response.data.error);
             break;
           case 500:
             toast.error("Internal Server Error");
