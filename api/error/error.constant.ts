@@ -15,6 +15,10 @@ export const errors = {
     httpStatus: 404,
     message: "Resource Not Found.",
   },
+  NOTE_NOT_FOUND: {
+    httpStatus: 404,
+    message: "Note Not Found.",
+  },
   USER_NOT_FOUND: {
     httpStatus: 401,
     message: "Email or Password Wrong",
