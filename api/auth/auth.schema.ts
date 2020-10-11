@@ -73,4 +73,5 @@ export type loginRequest = yup.InferType<typeof loginRequestSchema>;
 
 export interface userDBSchema extends signupRequest {
   clients?: Array<MongoDB.ObjectID>;
+  _id?: MongoDB.ObjectID;
 }
