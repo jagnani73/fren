@@ -69,11 +69,17 @@ export const generateReport = async (
       }
     );
     if (result.modifiedCount !== notes.length) throw errors.MONGODB_QUERY_ERROR;
+    if (notes.length === 0)
+      return {
+        success: false,
+        analysis: null,
+      };
     const pythonRequest: pythonRequestSchema = {
       notes: notes,
       userId: userId,
       therapistId: relationExists._id?.toHexString()!,
     };
+    console.log("%o", pythonRequest);
     const { data } = await Axios.post(
       `${process.env.FLASK_API}/api`,
       pythonRequest

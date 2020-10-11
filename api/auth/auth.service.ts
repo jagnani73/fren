@@ -50,7 +50,7 @@ export const signupUser = async (input: signupRequest): Promise<void> => {
 
 export const loginUser = async (
   input: loginRequest
-): Promise<{ authToken: string; category: string }> => {
+): Promise<{ authToken: string; category: string; therapistCode?: string }> => {
   const db = await DatabaseService.getInstance().getCollection("users");
   const validUser = await db.findOne<userDBSchema>({
     email: input.email,
@@ -68,5 +68,8 @@ export const loginUser = async (
   return {
     authToken,
     category: validUser.category,
+    ...(validUser.category === "therapist" && {
+      therapistCode: validUser.therapistCode,
+    }),
   };
 };
