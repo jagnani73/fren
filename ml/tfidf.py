@@ -5,6 +5,7 @@ tf-idf
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction import text
 import nltk
+
 from nltk.corpus import stopwords
 
 def tfidf(input):
@@ -21,7 +22,7 @@ def tfidf(input):
 
     idf_values = dict(zip(vectorizer.get_feature_names(), vectorizer.idf_))
 
-    return vectorizer.get_feature_names() # printing the vocabulary
+    return idf_values # printing the vocabulary
 
-
-
+if __name__=="__main__":
+    print(tfidf(["abhishek aashi ananya car saisha "]))
