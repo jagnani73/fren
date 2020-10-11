@@ -11,6 +11,7 @@ import json
 import senti as S
 import tfidf 
 import wordsimilarity as Ws
+import word_sim as spsim
 import random
 
 ch = "abcdefghijklmnopqrstuvwxyz123456789"
@@ -65,11 +66,19 @@ def breaker(A):
 
 def Pairs(arr):
    B = []
+   print(len(arr))
+   arr = {k: v for k, v in sorted(arr.items(), key=lambda item: item[1])}
+   print("here")
+   Limit = 20
    for i in arr:
+      print("in")
+      if len(B) > Limit:
+         break
       if arr[i] > 1:
          B.append([i,arr[i]])
 
    C = []
+   print(len(B))
    for j in range(len(B)):
       for i in range(j,len(B)):
          if i!=j:
@@ -77,7 +86,8 @@ def Pairs(arr):
             
             if tem == None:
                tem =0
-            if tem >= 5: 
+
+            if tem >= 4: 
                C.append({"id":randomnamegenarator(),
                 "from":B[j][0],
                 "to":B[i][0],
