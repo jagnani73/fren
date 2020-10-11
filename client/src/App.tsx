@@ -24,50 +24,50 @@ const App = () => {
     }
   }, [authContext]);
 
-  // let dumbRoutes = (
-  //   <>
-  //     {/* <Redirect from="/therapist" to="/" /> */}
-  //     <Redirect from="/client" to="/" />
-  //     <Route path="/login" exact component={Login} />
-  //     <Route path="/signup" exact component={Signup} />
-  //     <Route path="/" exact component={Index} />
-  //   </>
-  // );
+  let dumbRoutes = (
+    <>
+      <Redirect from="/therapist" to="/" />
+      <Redirect from="/client" to="/" />
+      <Route path="/login" exact component={Login} />
+      <Route path="/signup" exact component={Signup} />
+      <Route path="/" exact component={Index} />
+    </>
+  );
 
-  // let clientRoutes = (
-  //   <>
-  //     {/* <Redirect from="/therapist" to="/client" /> */}
-  //     <Redirect from="/login" to="/client" exact />
-  //     <Redirect from="/signup" to="/client" exact />
-  //     <Redirect from="/" to="/client" exact />
-  //     <Route path="/client/new-note" exact component={NewNote} />
-  //     <Route path="/client" component={Client} />
-  //   </>
-  // );
+  let clientRoutes = (
+    <>
+      <Switch>
+        <Redirect from="/therapist" to="/client" />
+        <Redirect from="/login" to="/client" />
+        <Redirect from="/signup" to="/client" />
+        <Redirect from="/" to="/client" exact />
+      </Switch>
+      <Route path="/client/new-note" exact component={NewNote} />
+      <Route path="/client" component={Client} />
+    </>
+  );
 
-  // let therapistRoutes = (
-  //   <>
-  //     <Redirect from="/login" to="/therapist" exact />
-  //     <Redirect from="/signup" to="/therapist" exact />
-  //     <Redirect from="/" to="/therapist" exact />
-  //     <Route path="/therapist" exact component={Therapist} />
-  //     {/* <Route path="/client" component={Client} /> */}
-  //   </>
-  // );
+  let therapistRoutes = (
+    <>
+      <Switch>
+        <Redirect from="/client" to="/therapist" />
+        <Redirect from="/login" to="/therapist" />
+        <Redirect from="/signup" to="/therapist" />
+        <Redirect from="/" to="/therapist" exact />
+      </Switch>
+      <Route path="/therapist" component={Therapist} />
+      <Route path="/therapist/:id" exact component={SingleUser} />
+    </>
+  );
 
   return (
     <>
-      <Route path="/therapist" component={Therapist} />
-      <Route path="/therapist/:id" exact component={SingleUser} />
-      <Switch>
-        <Route path="/client/new-note" exact component={NewNote} />
-        <Route path="/client" component={Client} />
-      </Switch>
       {/* {authContext.isAuth
         ? localStorage.getItem("category") === "client"
           ? clientRoutes
           : therapistRoutes
         : dumbRoutes} */}
+      {therapistRoutes}
     </>
   );
 };

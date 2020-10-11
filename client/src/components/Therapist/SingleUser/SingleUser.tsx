@@ -8,9 +8,9 @@ const SingleUser = () => {
   // const { id } = useParams();
 
   return (
-    <div className="absolute top-0 right-0 w-1/2 min-h-screen flex flex-wrap">
+    <div className="lg:absolute top-0 right-0 w-full lg:w-1/2 lg:min-h-screen flex flex-wrap">
       <div className="w-full h-1/2vh border-solid">
-        <h1 className="text-center text-2xl">
+        <h1 className="text-center text-base lg:text-2xl mt-10 lg:mt-0">
           Network Visualisation of Word Correlation
         </h1>
         <NetworkGraph />

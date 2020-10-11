@@ -42,7 +42,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="w-1/2 absolute top-0 left-0 bg-green-900 h-full flex flex-wrap">
+    <div className="w-full lg:w-1/2 lg:absolute top-0 left-0 bg-green-900 h-full flex flex-wrap">
       <div className="flex flex-wrap h-full m-auto">
         {users.map((user) => (
           <User

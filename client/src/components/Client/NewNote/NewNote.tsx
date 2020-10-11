@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { createBrowserHistory } from "history";
+import { VscDiscard } from "react-icons/vsc";
 
 import Backdrop from "../../Misc/Backdrop";
 
@@ -36,9 +37,11 @@ const NewNote = () => {
       <Backdrop goBack={true} />
       <div className="fixed flex flex-wrap top-10 left-0 right-0 bottom-10 z-30 w-3/4 m-auto h-auto bg-baseBlack text-white rounded-lg shadow-note py-20">
         <div className="flex w-11/12 mx-auto">
-          <h1 className="mr-auto text-3xl">Hi</h1>
-          <div className="ml-auto cursor-pointer" onClick={exit}>
-            cancel
+          <h1 className="mr-auto text-3xl">
+            Hello <strong>Fren</strong>d!
+          </h1>
+          <div className="ml-auto cursor-pointer text-4xl" onClick={exit}>
+            <VscDiscard />
           </div>
         </div>
         <Formik
@@ -47,13 +50,13 @@ const NewNote = () => {
           validationSchema={validationSchema}
         >
           <Form className="m-auto w-11/12 bg-baseBlack h-auto">
-            <div className="flex flex-wrap mb-4">
+            <div className="flex flex-wrap lg:mb-4">
               <Field
                 type="text"
                 name="title"
                 placeholder="Occaecat pariatur duis labore elit veniam eu sint dolore laborum aute enim amet."
                 className={
-                  "w-full mb-4 rounded-lg text-black focus:outline-none py-3 px-4 text-lg border-solid border-2 border-black"
+                  "w-full mb-2 lg:mb-4 rounded-lg text-black focus:outline-none py-3 px-4 text-sm md:text-base lg:text-lg border-solid border-2 border-black"
                 }
               />
             </div>
@@ -69,12 +72,12 @@ const NewNote = () => {
                   ]
                 }
                 className={
-                  "w-full mb-4 rounded-lg text-black focus:outline-none py-3 px-4 text-lg border-solid border-2 border-black"
+                  "w-full mb-4 rounded-lg text-black focus:outline-none py-3 px-4 text-sm md:text-base lg:text-lg border-solid border-2 border-black"
                 }
               />
             </div>
 
-            <div className="w-1/4 ml-auto">
+            <div className="w-full md:w-1/2 lg:w-1/4 ml-auto">
               <button
                 type="submit"
                 className="bg-green-500 w-full text-xl rounded-lg py-3 text-white focus:outline-none"

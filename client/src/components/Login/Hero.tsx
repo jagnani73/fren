@@ -26,6 +26,7 @@ const Hero = () => {
         localStorage.setItem("authToken", res.data.authToken);
         localStorage.setItem("category", res.data.category);
         toast.success("Hooray! Logged in!");
+        alert("Hooray! Logged in!");
         window.location.reload();
       })
       .catch((err) => {
@@ -49,15 +50,15 @@ const Hero = () => {
   return (
     <div className="w-full h-screen flex flex-wrap">
       <ToastContainer />
-      <div className="w-1/2 bg-green-600 h-full" />
-      <div className="w-1/2 h-full ml-auto flex flex-wrap">
+      <div className="hidden lg:block w-1/2 bg-green-600 h-full" />
+      <div className="w-full lg:w-1/2 h-full ml-auto flex flex-wrap">
         <Formik
           initialValues={initialValues}
           onSubmit={(values) => submitValues(values)}
           validationSchema={validationSchema}
         >
           {({ errors, touched }) => (
-            <Form className="m-auto w-1/3">
+            <Form className="m-auto w-11/12 lg:w-2/5">
               <div className="flex flex-wrap mb-4">
                 <label htmlFor="email" className="mb-3 text-base">
                   Email
@@ -104,7 +105,7 @@ const Hero = () => {
                 <button
                   type="submit"
                   disabled={errors.email || errors.password ? true : false}
-                  className="bg-green-500 w-full text-xl rounded-lg py-3 text-white"
+                  className="bg-green-500 w-full text-xl rounded-lg py-3 text-white mt-10"
                 >
                   Login !
                 </button>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { VscNewFile } from "react-icons/vsc";
 
 import { NoteType } from "../../types";
 import Note from "./Note";
@@ -47,10 +48,13 @@ const Hero = () => {
 
   return (
     <div className=" bg-baseBlack text-white text-center">
-      <div className="flex flex-wrap w-full h-auto px-6">
-        HI
-        <Link to="/client/new-note" className="ml-auto">
-          newnote
+      <div className="flex flex-wrap w-full h-auto px-6 pt-10">
+        logo
+        <Link
+          to="/client/new-note"
+          className="ml-auto text-5xl mr-5 hover:text-gray-700"
+        >
+          <VscNewFile />
         </Link>
       </div>
       <div className="flex flex-wrap min-h-screen w-full">
@@ -58,7 +62,7 @@ const Hero = () => {
           notes.map((note) => (
             <div
               key={note._id}
-              className={`w-1/4 p-6 mx-auto flex flex-wrap text-center`}
+              className="w-11/12 lg:w-1/4 p-6 m-auto flex flex-wrap text-center"
             >
               <Note
                 deleteHandler={() => {
@@ -72,9 +76,11 @@ const Hero = () => {
                       : note.title}
                   </h3>
                   <p className="w-full px-2">
-                    {note.content.length > 500
-                      ? `${note.content.substring(0, 500)}...`
-                      : note.content}
+                    {window.innerWidth > 556
+                      ? note.content.length > 500
+                        ? `${note.content.substring(0, 500)}...`
+                        : note.content
+                      : `${note.content.substring(0, 250)}...`}
                   </p>
                 </div>
               </Note>

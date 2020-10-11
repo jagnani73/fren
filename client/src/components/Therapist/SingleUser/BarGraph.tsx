@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import {
   BarChart,
   Bar,
-  Cell,
+  Brush,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -56,13 +56,15 @@ const feelingHandler = (score: number) => {
   return scoreText[score + 3];
 };
 
+const w: number = window.innerWidth;
+
 export default class Example extends PureComponent {
   render() {
     return (
       <div className="flex w-full h-full">
         <div className="m-auto">
           <BarChart
-            width={500}
+            width={w < 991 ? (w * 9) / 10 : (w * 9) / 40}
             height={300}
             data={data}
             margin={{
@@ -77,6 +79,7 @@ export default class Example extends PureComponent {
             <YAxis label="At" />
             <Tooltip />
             <Legend />
+            <Brush dataKey="name" height={30} stroke="#8884d8" />
             <ReferenceLine y={0} stroke="#000" />
             <Bar dataKey="score" fill="#82ca9d" />
           </BarChart>

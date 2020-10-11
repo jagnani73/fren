@@ -17,7 +17,7 @@ const User = (props: UserProps) => {
   ];
 
   return (
-    <div className="w-1/2 flex flex-wrap rounded-tl-lg p-5 m-auto">
+    <div className="w-11/12 lg:w-1/2 flex flex-wrap rounded-tl-lg p-5 m-auto">
       <Link
         to={`/therapist/${props.id}`}
         className="w-full h-full flex flex-wrap bg-green-800 shadow-note text-white cursor-pointer rounded-tl-lg"

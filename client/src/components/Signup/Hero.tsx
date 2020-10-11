@@ -44,6 +44,7 @@ const Hero = () => {
       .then((_res) => {
         toast.success("Registered. Please login once!");
         createBrowserHistory().push("/login");
+        alert("Registered. Please login once!");
         window.location.reload();
       })
       .catch((err) => {
@@ -62,7 +63,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-1/2 h-screen bg-green-900 flex flex-wrap">
+    <div className="w-full lg:w-1/2 h-screen bg-green-900 flex flex-wrap">
       <ToastContainer />
       <Formik
         initialValues={initialValues}
@@ -70,7 +71,7 @@ const Hero = () => {
         validationSchema={validationSchema}
       >
         {({ errors, touched }) => (
-          <Form className="m-auto w-2/5 flex flex-wrap">
+          <Form className="m-auto w-11/12 lg:w-2/5 flex flex-wrap">
             <h4 className="text-white text-2xl mb-5">
               Not a <span className="font-semibold">{user}</span>? Click{" "}
               <span
