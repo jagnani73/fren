@@ -1,6 +1,10 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+
+import { PostLogin } from "../../types";
+import APIservice from "../../services/axios";
 
 const Hero = () => {
   const initialValues = {
@@ -16,12 +20,35 @@ const Hero = () => {
     password: Yup.string().required("No password provided"),
   });
 
-  const submitValues = (values: any) => {
-    console.log(values);
+  const submitValues = (values: PostLogin) => {
+    APIservice.post("/auth/login", values)
+      .then((res) => {
+        localStorage.setItem("authToken", res.data.authToken);
+        localStorage.setItem("category", res.data.category);
+        toast.success("Hooray! Logged in!");
+        window.location.reload();
+      })
+      .catch((err) => {
+        switch (err.response.status) {
+          case 400:
+            toast.error(err.response.statusText);
+            break;
+          case 401:
+            toast.error(err.response.statusText);
+            break;
+          case 500:
+            toast.error("Internal Server Error");
+            break;
+          default:
+            toast.error("Oops! Something went wrong!");
+            break;
+        }
+      });
   };
 
   return (
     <div className="w-full h-screen flex flex-wrap">
+      <ToastContainer />
       <div className="w-1/2 bg-green-600 h-full" />
       <div className="w-1/2 h-full ml-auto flex flex-wrap">
         <Formik
@@ -57,7 +84,7 @@ const Hero = () => {
                   Password
                 </label>
                 <Field
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="ThisShouldBe@Hidden"
                   className={

@@ -16,3 +16,17 @@ export interface BackdropProps {
 }
 
 export type User = "client" | "therapist";
+
+export interface PostSignup {
+  name: string;
+  age: string | number;
+  email: string;
+  gender: string;
+  password: string;
+  therapistCode?: string;
+}
+
+export interface PostLogin {
+  email: string;
+  password: string;
+}

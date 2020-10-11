@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { createBrowserHistory } from "history";
+import { ToastContainer, toast } from "react-toastify";
 
-import { User } from "../../types";
+import { User, PostSignup } from "../../types";
+import APIservice from "../../services/axios";
 
 const Hero = () => {
   const [user, setUser] = useState<User>("client");
@@ -12,7 +15,7 @@ const Hero = () => {
     age: "",
     email: "",
     gender: "M",
-    code: "",
+    therapistCode: "",
     password: "",
   };
 
@@ -24,8 +27,8 @@ const Hero = () => {
       .email("Should be a valid email."),
     age: Yup.number().required("No age provided").typeError("Must be a number"),
     gender: Yup.string().required("No Gender provided"),
-    code: Yup.string().trim().required("No Code Provided"),
     password: Yup.string()
+      .trim()
       .required("No password provided")
       .min(8, "minimum 8 characters")
       .matches(
@@ -34,15 +37,33 @@ const Hero = () => {
       ),
   });
 
-  //TODO: values type
-
-  const submitValues = (values: any) => {
+  const submitValues = (values: PostSignup) => {
     const data = { ...values, category: user };
-    console.log(data);
+    if (user === "therapist") data.therapistCode = undefined;
+    APIservice.post("/auth/signup", data)
+      .then((_res) => {
+        toast.success("Registered. Please login once!");
+        createBrowserHistory().push("/login");
+        window.location.reload();
+      })
+      .catch((err) => {
+        switch (err.response.status) {
+          case 400:
+            toast.error(err.response.statusText);
+            break;
+          case 500:
+            toast.error("Internal Server Error");
+            break;
+          default:
+            toast.error("Oops! Something went wrong!");
+            break;
+        }
+      });
   };
 
   return (
     <div className="w-1/2 h-screen bg-green-900 flex flex-wrap">
+      <ToastContainer />
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => submitValues(values)}
@@ -109,7 +130,7 @@ const Hero = () => {
                 Password
               </label>
               <Field
-                type="text"
+                type="password"
                 name="password"
                 placeholder="ThisShouldBe@Hidden"
                 className={
@@ -167,26 +188,31 @@ const Hero = () => {
               )}
             </div>
 
-            <div className="flex flex-wrap w-full">
-              <label htmlFor="code" className="mb-3 text-base text-white">
-                Therapist Code
-              </label>
-              <Field
-                type="text"
-                name="code"
-                placeholder="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-                className={
-                  touched.code && errors.code
-                    ? "w-full mb-4 rounded-lg focus:outline-none py-3 px-4 bg-red-300 border-solid border-2 border-red-700 text-lg"
-                    : "w-full mb-4 rounded-lg focus:outline-none py-3 px-4 text-lg"
-                }
-              />
-              {errors.code && touched.code && (
-                <div className="text-red-600 font-bold uppercase text-sm">
-                  {errors.code}
-                </div>
-              )}
-            </div>
+            {user === "client" && (
+              <div className="flex flex-wrap w-full">
+                <label
+                  htmlFor="therapistCode"
+                  className="mb-3 text-base text-white"
+                >
+                  Therapist Code
+                </label>
+                <Field
+                  type="text"
+                  name="therapistCode"
+                  placeholder="9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+                  className={
+                    touched.therapistCode && errors.therapistCode
+                      ? "w-full mb-4 rounded-lg focus:outline-none py-3 px-4 bg-red-300 border-solid border-2 border-red-700 text-lg"
+                      : "w-full mb-4 rounded-lg focus:outline-none py-3 px-4 text-lg"
+                  }
+                />
+                {errors.therapistCode && touched.therapistCode && (
+                  <div className="text-red-600 font-bold uppercase text-sm">
+                    {errors.therapistCode}
+                  </div>
+                )}
+              </div>
+            )}
 
             <div className="w-full mt-4">
               <button
@@ -197,11 +223,11 @@ const Hero = () => {
                   errors.age ||
                   errors.password ||
                   errors.gender ||
-                  errors.code
+                  (user === "client" && errors.therapistCode)
                     ? true
                     : false
                 }
-                className="bg-green-700 w-full text-xl rounded-lg py-3 text-white border-solid border-2 border-white"
+                className="bg-green-700 w-full text-xl rounded-lg py-3 text-white border-solid border-2 border-white focus:outline-none"
               >
                 Sign Up !
               </button>
