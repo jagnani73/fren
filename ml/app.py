@@ -13,7 +13,7 @@ import json
 import senti as S
 import tfidf 
 import wordsimilarity as Ws
-import word_sim as spsim
+# import word_sim as spsim
 import random
 
 ch = "abcdefghijklmnopqrstuvwxyz123456789"
