@@ -19,6 +19,10 @@ import random
 ch = "abcdefghijklmnopqrstuvwxyz123456789"
 app = Flask(__name__)
 
+@app.route('/')
+def happy():
+   return "Running happily :)" 
+
 @app.route('/api',methods = ['POST'])
 def login():
    res = request.get_json()
