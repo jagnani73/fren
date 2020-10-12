@@ -97,7 +97,7 @@ Exploration of how clients react to pictures so as to understand their spectrum 
 <img src = "https://avatars0.githubusercontent.com/u/33656173?s=400&u=a411c58cfffec9bf59da192674093abf4b82bd04&v=4"  height="120" alt="Abhishek Saxena">
 </p>
 <p align="center">
-<a href = "https://github.com/https://github.com/saxenabhishek"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
+<a href = "https://github.com/saxenabhishek"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
 <a href = "https://www.linkedin.com/in/abhibored">
 <img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36"/>
 </a>
@@ -109,7 +109,7 @@ Exploration of how clients react to pictures so as to understand their spectrum 
 <img src = "https://avatars2.githubusercontent.com/u/60016461?s=400&u=9e9d50e037da73a840a5c43f8f2c2b98942452aa&v=4"  height="120" alt="Ansh Sharma">
 </p>
 <p align="center">
-<a href = "https://github.com/https://github.com/DaemonOnCode"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
+<a href = "https://github.com/DaemonOnCode"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
 <a href = "https://www.linkedin.com/in/anshsharma09">
 <img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36"/>
 </a>
@@ -121,7 +121,7 @@ Exploration of how clients react to pictures so as to understand their spectrum 
 <img src = "https://media-exp1.licdn.com/dms/image/C4E03AQH4lFfT3j8blw/profile-displayphoto-shrink_200_200/0?e=1608163200&v=beta&t=7ZWWBWQnmsbjp6Wklntygyx1w9i4eFzk1J27DGmvTSA"  height="120" alt="Saisha Shetty">
 </p>
 <p align="center">
-<a href = "https://github.com/https://github.com/SaishaShetty"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
+<a href = "https://github.com/SaishaShetty"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
 <a href = "https://www.linkedin.com/in/saisha-shetty-bba6b81a7">
 <img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36"/>
 </a>
@@ -137,7 +137,7 @@ Exploration of how clients react to pictures so as to understand their spectrum 
 <img src = "https://avatars3.githubusercontent.com/u/54375111?s=460&u=0585ce48d7a98d878ee16041d73695e37b17ade0&v=4"  height="120" alt="Gita Alekhya Paul">
 </p>
 <p align="center">
-<a href = "https://github.com/https://github.com/gitaalekhyapaul"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
+<a href = "https://github.com/gitaalekhyapaul"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
 <a href = "https://www.linkedin.com/in/gitaalekhyapaul">
 <img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36"/>
 </a>
@@ -149,7 +149,7 @@ Exploration of how clients react to pictures so as to understand their spectrum 
 <img src = "https://avatars0.githubusercontent.com/u/60016972?s=460&u=44becacb17c82494c8a16c1d17f9f7183f8d67c3&v=4"  height="120" alt="Yashvardhan Jagnani">
 </p>
 <p align="center">
-<a href = "https://github.com/https://github.com/jagnani73"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
+<a href = "https://github.com/jagnani73"><img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36"/></a>
 <a href = "https://www.linkedin.com/in/yashvardhan-jagnani">
 <img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36"/>
 </a>
