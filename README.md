@@ -2,9 +2,7 @@
 
 # **FREN** - HackTheMountains'20
 
-#### Assistant to the Therapist
-
-## [Give it a try!](https://gitaalekhyapaul.xyz/)
+### Assistant to the Therapist
 
 ## A Preview of What Fren Is:
 
