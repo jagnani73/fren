@@ -60,10 +60,10 @@ const SingleUser = () => {
         </h1>
         <NetworkGraph edges={edges} nodes={nodes} />
       </div>
-      <div className="w-1/2 h-1/2vh border-solid">
+      <div className="w-11/12 lg:w-1/2 mx-auto h-1/2vh border-solid">
         <BarGraph data={sentiments} />
       </div>
-      <div className="w-1/2 h-1/2vh border-solid">
+      <div className="w-11/12 lg:w-1/2 mx-auto h-1/2vh border-solid">
         <Words words={words} />
       </div>
     </div>

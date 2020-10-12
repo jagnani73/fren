@@ -72,11 +72,11 @@ const Example = (props: SentimentProps) => {
             bottom: 5,
           }}
         >
-          <XAxis dataKey={"time"} axisLine={false} />
-          <YAxis label="At" />
+          <XAxis dataKey="time" axisLine={false} />
+          <YAxis />
           <Tooltip />
           <Legend />
-          <Brush dataKey="name" height={30} stroke="#21533C" />
+          <Brush dataKey="score" height={30} stroke="#21533C" />
           <ReferenceLine y={0} stroke="#000" />
           <Bar dataKey="score" fill="#276749" />
         </BarChart>
