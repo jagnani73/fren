@@ -5,7 +5,7 @@ import { WordAnalysisProps } from "../../../types";
 const Words = (props: WordAnalysisProps) => {
   return (
     <div className="h-full my-auto">
-      <div className="pt-3 lg:pt-16 h-full">
+      <div className="pt-16 h-full">
         <div className="h-full overflow-y-scroll">
           {props.words.map((word) => (
             <div key={word.noteId}>
