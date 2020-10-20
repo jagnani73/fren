@@ -63,7 +63,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-full lg:w-1/2 h-screen bg-green-900 flex flex-wrap">
+    <div className="w-full lg:w-1/2 h-screen bg-blue-900 flex flex-wrap">
       <ToastContainer />
       <Formik
         initialValues={initialValues}
@@ -228,7 +228,7 @@ const Hero = () => {
                     ? true
                     : false
                 }
-                className="bg-green-700 w-full text-xl rounded-lg py-3 text-white border-solid border-2 border-white focus:outline-none"
+                className="bg-green-500 w-full text-xl rounded-lg py-3 text-white border-solid border-2 border-white focus:outline-none"
               >
                 Sign Up !
               </button>
