@@ -50,7 +50,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="w-full lg:w-1/2 lg:absolute top-0 left-0 bg-green-900 h-full flex flex-wrap">
+    <div className="w-full lg:w-1/2 lg:absolute top-0 left-0 bg-blue-900 h-full flex flex-wrap">
       <div className="flex flex-wrap w-full h-full m-auto">
         <ToastContainer />
         <div className="flex flex-wrap w-full text-white">
