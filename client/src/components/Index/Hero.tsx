@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className="flex flex-wrap w-full h-1/2vh lg:h-screen">
-      <div className="flex flex-wrap w-full lg:w-1/2 h-full bg-green-900">
+      <div className="flex flex-wrap w-full lg:w-1/2 h-full bg-blue-900">
         <Link
           to="/signup"
           className="m-auto text-3xl border-solid border-2 border-white rounded-lg px-8 py-2 text-white"
