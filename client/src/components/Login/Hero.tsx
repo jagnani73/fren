@@ -51,7 +51,7 @@ const Hero = () => {
   return (
     <div className="w-full h-screen flex flex-wrap">
       <ToastContainer />
-      <div className="hidden lg:block w-1/2 bg-green-600 h-full" />
+      <div className="hidden lg:block w-1/2 bg-blue-900 h-full" />
       <div className="w-full lg:w-1/2 h-full ml-auto flex flex-wrap">
         <Formik
           initialValues={initialValues}
